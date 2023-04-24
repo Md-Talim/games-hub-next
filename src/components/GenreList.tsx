@@ -1,8 +1,12 @@
 import { Button, HStack, Image, List, ListItem } from '@chakra-ui/react';
-import useGenres from '../hooks/useGenres';
+import useGenres, { Genre } from '../hooks/useGenres';
 import getOptimizedImage from '../services/image-url';
 
-const GenreList = () => {
+interface Props {
+  onSelectItem: (genre: Genre) => void;
+}
+
+const GenreList = ({ onSelectItem }: Props) => {
   const { data } = useGenres();
   return (
     <List>
@@ -15,7 +19,11 @@ const GenreList = () => {
               borderRadius={8}
               objectFit="cover"
             />
-            <Button fontSize="lg" variant="link">
+            <Button
+              fontSize="lg"
+              variant="link"
+              onClick={() => onSelectItem(genre)}
+            >
               {genre.name}
             </Button>
           </HStack>
