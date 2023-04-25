@@ -10,12 +10,14 @@ import { Platform } from './hooks/useGames';
 import SortSelector from './components/SortSelector';
 import { HStack } from '@chakra-ui/react';
 
+export interface GameQuery {
+  genre: Genre | null;
+  platform: Platform | null;
+  sortOrder: string;
+}
+
 function App() {
-  const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
-  const [selectedPlatform, setSelectedPlatform] = useState<Platform | null>(
-    null
-  );
-  const [order, setOrder] = useState<string>('');
+  const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
 
   return (
     <>
@@ -35,27 +37,27 @@ function App() {
         <Show above='lg'>
           <GridItem area='aside' paddingX={5}>
             <GenreList
-              onSelectItem={(genre) => setSelectedGenre(genre)}
-              selectedGenre={selectedGenre}
+              onSelectItem={(genre) => setGameQuery({ ...gameQuery, genre })}
+              selectedGenre={gameQuery.genre}
             />
           </GridItem>
         </Show>
         <GridItem area='main' paddingX={5}>
           <HStack marginBottom={5}>
             <PlatformSelector
-              onSelectPlatform={(platform) => setSelectedPlatform(platform)}
-              selectedPlatform={selectedPlatform}
+              onSelectPlatform={(platform) =>
+                setGameQuery({ ...gameQuery, platform })
+              }
+              selectedPlatform={gameQuery.platform}
             />
             <SortSelector
-              selectedItem={order}
-              onSelectItem={(order) => setOrder(order)}
+              selectedItem={gameQuery.sortOrder}
+              onSelectItem={(sortOrder) =>
+                setGameQuery({ ...gameQuery, sortOrder })
+              }
             />
           </HStack>
-          <GameGrid
-            selectedGenre={selectedGenre}
-            selectedPlatform={selectedPlatform}
-            selectedOrder={order}
-          />
+          <GameGrid gameQuery={gameQuery} />
         </GridItem>
       </Grid>
     </>

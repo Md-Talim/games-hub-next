@@ -20,7 +20,7 @@ const useData = <T>(
     () => {
       const controller = new AbortController();
 
-      setIsLoading((prevState) => (prevState = true));
+      setIsLoading(true);
       apiClient
         .get<fetchDataResponse<T>>(endpoint, {
           signal: controller.signal,
@@ -28,12 +28,12 @@ const useData = <T>(
         })
         .then((res) => {
           setData(res.data.results);
-          setIsLoading((prevState) => (prevState = false));
+          setIsLoading(false);
         })
         .catch((err) => {
           if (err instanceof CanceledError) return;
           setError(err.message);
-          setIsLoading((prevState) => (prevState = false));
+          setIsLoading(false);
         });
 
       return () => controller.abort();
