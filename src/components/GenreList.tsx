@@ -4,9 +4,10 @@ import getOptimizedImage from '../services/image-url';
 
 interface Props {
   onSelectItem: (genre: Genre) => void;
+  selectedGenre: Genre | null;
 }
 
-const GenreList = ({ onSelectItem }: Props) => {
+const GenreList = ({ onSelectItem, selectedGenre }: Props) => {
   const { data } = useGenres();
   return (
     <List>
@@ -17,11 +18,12 @@ const GenreList = ({ onSelectItem }: Props) => {
               src={getOptimizedImage(genre.image_background)}
               boxSize={8}
               borderRadius={8}
-              objectFit="cover"
+              objectFit='cover'
             />
             <Button
-              fontSize="lg"
-              variant="link"
+              fontWeight={genre.id === selectedGenre?.id ? 'bold' : 'normal'}
+              fontSize='lg'
+              variant='link'
               onClick={() => onSelectItem(genre)}
             >
               {genre.name}
