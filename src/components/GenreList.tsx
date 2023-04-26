@@ -18,7 +18,7 @@ const GenreList = ({ onSelectItem, selectedGenre }: Props) => {
   const { data } = useGenres();
   return (
     <>
-      <Heading fontSize='2xl' marginBottom={5}>
+      <Heading fontSize='3xl' marginY={5}>
         Genres
       </Heading>
       <List>
