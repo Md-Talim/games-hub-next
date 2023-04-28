@@ -15,7 +15,7 @@ interface Props {
 }
 
 const GenreList = ({ onSelectItem, selectedGenre }: Props) => {
-  const { data } = useGenres();
+  const data = useGenres();
   return (
     <>
       <Heading fontSize='3xl' marginY={5}>
