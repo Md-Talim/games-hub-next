@@ -3,6 +3,7 @@ import { Game } from '../hooks/useGames';
 import PlatfromIconList from './PlatfromIconList';
 import CriticScore from './CriticScore';
 import getOptimizedImage from '../services/image-url';
+import Emoji from './Emoji';
 
 interface Props {
   game: Game;
@@ -13,8 +14,7 @@ const GameCard = ({ game }: Props) => {
     <Card>
       <Image src={getOptimizedImage(game.background_image)} />
       <CardBody>
-        <Heading fontSize="2xl">{game.name}</Heading>
-        <HStack justifyContent="space-between">
+        <HStack justifyContent='space-between' marginBottom={2}>
           <PlatfromIconList
             platforms={game.parent_platforms.map(
               (platform) => platform.platform
@@ -22,6 +22,10 @@ const GameCard = ({ game }: Props) => {
           />
           <CriticScore score={game.metacritic} />
         </HStack>
+        <Heading fontSize='2xl' marginBottom={2}>
+          {game.name}
+        </Heading>
+        <Emoji rating={game.rating_top} />
       </CardBody>
     </Card>
   );
