@@ -15,14 +15,14 @@ interface Props {
 }
 
 const GenreList = ({ onSelectItem, selectedGenre }: Props) => {
-  const data = useGenres();
+  const {data} = useGenres();
   return (
     <>
       <Heading fontSize='3xl' marginY={5}>
         Genres
       </Heading>
       <List>
-        {data.map((genre) => (
+        {data?.results.map((genre) => (
           <ListItem key={genre.id} paddingY={1.5}>
             <HStack>
               <Image
