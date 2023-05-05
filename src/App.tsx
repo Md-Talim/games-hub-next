@@ -3,7 +3,6 @@ import { Grid, GridItem } from '@chakra-ui/layout';
 import { Show } from '@chakra-ui/media-query';
 import { Flex } from '@chakra-ui/react';
 import { Genre } from './hooks/useGenres';
-import { Platform } from './hooks/useGames';
 import {
   GameGrid,
   GameHeading,
@@ -12,6 +11,7 @@ import {
   PlatformSelector,
   SortSelector,
 } from './components';
+import { Platform } from './hooks/usePlatforms';
 
 export interface GameQuery {
   genre: Genre | null;
