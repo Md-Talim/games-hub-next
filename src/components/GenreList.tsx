@@ -6,15 +6,15 @@ import {
   List,
   ListItem,
 } from '@chakra-ui/react';
-import useGenres, { Genre } from '../hooks/useGenres';
+import useGenres from '../hooks/useGenres';
 import getOptimizedImage from '../services/image-url';
 
 interface Props {
-  onSelectItem: (genre: Genre) => void;
-  selectedGenre: Genre | null;
+  onSelectGenre: (genreId: number) => void;
+  selectedGenreId?: number;
 }
 
-const GenreList = ({ onSelectItem, selectedGenre }: Props) => {
+const GenreList = ({ onSelectGenre, selectedGenreId }: Props) => {
   const { data } = useGenres();
   return (
     <>
@@ -32,12 +32,12 @@ const GenreList = ({ onSelectItem, selectedGenre }: Props) => {
                 objectFit='cover'
               />
               <Button
-                fontWeight={genre.id === selectedGenre?.id ? 'bold' : 'normal'}
+                fontWeight={genre.id === selectedGenreId ? 'bold' : 'normal'}
                 fontSize='lg'
                 whiteSpace='normal'
                 textAlign='left'
                 variant='link'
-                onClick={() => onSelectItem(genre)}
+                onClick={() => onSelectGenre(genre.id)}
               >
                 {genre.name}
               </Button>
