@@ -18,7 +18,7 @@ const GameDetail = () => {
   return (
     <Box padding={5}>
       <Heading>{game.name}</Heading>
-      <Text>{game.description_raw}</Text>
+      <Text dangerouslySetInnerHTML={{ __html: game.description }}></Text>
     </Box>
   );
 };
