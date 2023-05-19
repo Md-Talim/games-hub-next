@@ -1,4 +1,4 @@
-import { Box, Heading, Spinner, Text } from '@chakra-ui/react';
+import { Box, Heading, SimpleGrid, Spinner, Text } from '@chakra-ui/react';
 import { useParams } from 'react-router-dom';
 import { CriticScore, DefinitionItem, ExpandableText } from '../components';
 import useGame from '../hooks/useGame';
@@ -20,24 +20,26 @@ const GameDetail = () => {
     <Box padding={5}>
       <Heading>{game.name}</Heading>
       <ExpandableText text={game.description} />
-      <DefinitionItem term='Platforms'>
-        {game.parent_platforms.map(({ platform }) => (
-          <Text key={platform.id}>{platform.name}</Text>
-        ))}
-      </DefinitionItem>
-      <DefinitionItem term='Publishers'>
-        {game.publishers.map((publisher) => (
-          <Text key={publisher.id}>{publisher.name}</Text>
-        ))}
-      </DefinitionItem>
-      <DefinitionItem term='Genres'>
-        {game.genres.map((genre) => (
-          <Text key={genre.id}>{genre.name}</Text>
-        ))}
-      </DefinitionItem>
-      <DefinitionItem term='Metacritic'>
-        <CriticScore score={game.metacritic} />
-      </DefinitionItem>
+      <SimpleGrid columns={2} maxWidth='5xl' marginX='auto'>
+        <DefinitionItem term='Platforms'>
+          {game.parent_platforms.map(({ platform }) => (
+            <Text key={platform.id}>{platform.name}</Text>
+          ))}
+        </DefinitionItem>
+        <DefinitionItem term='Publishers'>
+          {game.publishers.map((publisher) => (
+            <Text key={publisher.id}>{publisher.name}</Text>
+          ))}
+        </DefinitionItem>
+        <DefinitionItem term='Genres'>
+          {game.genres.map((genre) => (
+            <Text key={genre.id}>{genre.name}</Text>
+          ))}
+        </DefinitionItem>
+        <DefinitionItem term='Metacritic'>
+          <CriticScore score={game.metacritic} />
+        </DefinitionItem>
+      </SimpleGrid>
     </Box>
   );
 };
