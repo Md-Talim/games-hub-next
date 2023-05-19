@@ -1,6 +1,6 @@
 import { Box, Heading, Spinner, Text } from '@chakra-ui/react';
 import { useParams } from 'react-router-dom';
-import { DefinitionItem, ExpandableText } from '../components';
+import { CriticScore, DefinitionItem, ExpandableText } from '../components';
 import useGame from '../hooks/useGame';
 
 const GameDetail = () => {
@@ -34,6 +34,9 @@ const GameDetail = () => {
         {game.genres.map((genre) => (
           <Text>{genre.name}</Text>
         ))}
+      </DefinitionItem>
+      <DefinitionItem term='Metacritic'>
+        <CriticScore score={game.metacritic} />
       </DefinitionItem>
     </Box>
   );
