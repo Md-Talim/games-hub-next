@@ -1,5 +1,6 @@
 import ColorModeSwith from './ColorModeSwitch';
 import CriticScore from './CriticScore';
+import DefinitionItem from './DefinitionItem';
 import Emoji from './Emoji';
 import ExpandableText from './ExpandableText';
 import GameCard from './GameCard';
@@ -17,6 +18,7 @@ import SortSelector from './SortSelector';
 export {
   ColorModeSwith,
   CriticScore,
+  DefinitionItem,
   Emoji,
   ExpandableText,
   GameCard,
