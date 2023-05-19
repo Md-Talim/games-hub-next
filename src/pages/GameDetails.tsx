@@ -30,6 +30,11 @@ const GameDetail = () => {
           <Text>{publisher.name}</Text>
         ))}
       </DefinitionItem>
+      <DefinitionItem term='Genres'>
+        {game.genres.map((genre) => (
+          <Text>{genre.name}</Text>
+        ))}
+      </DefinitionItem>
     </Box>
   );
 };
