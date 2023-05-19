@@ -1,6 +1,7 @@
 import ColorModeSwith from './ColorModeSwitch';
 import CriticScore from './CriticScore';
 import Emoji from './Emoji';
+import ExpandableText from './ExpandableText';
 import GameCard from './GameCard';
 import GameCardContainer from './GameCardContainer';
 import GameCardSkeleton from './GameCardSkeleton';
@@ -17,6 +18,7 @@ export {
   ColorModeSwith,
   CriticScore,
   Emoji,
+  ExpandableText,
   GameCard,
   GameCardContainer,
   GameCardSkeleton,
