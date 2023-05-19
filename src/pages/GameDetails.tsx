@@ -25,6 +25,11 @@ const GameDetail = () => {
           <Text key={platform.id}>{platform.name}</Text>
         ))}
       </DefinitionItem>
+      <DefinitionItem term='Publishers'>
+        {game.publishers.map((publisher) => (
+          <Text>{publisher.name}</Text>
+        ))}
+      </DefinitionItem>
     </Box>
   );
 };
