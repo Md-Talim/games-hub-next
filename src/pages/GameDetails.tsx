@@ -1,6 +1,6 @@
-import { Box, Heading, Spinner } from '@chakra-ui/react';
+import { Box, Heading, Spinner, Text } from '@chakra-ui/react';
 import { useParams } from 'react-router-dom';
-import { ExpandableText } from '../components';
+import { DefinitionItem, ExpandableText } from '../components';
 import useGame from '../hooks/useGame';
 
 const GameDetail = () => {
@@ -20,6 +20,11 @@ const GameDetail = () => {
     <Box padding={5}>
       <Heading>{game.name}</Heading>
       <ExpandableText text={game.description} />
+      <DefinitionItem term='Platforms'>
+        {game.parent_platforms.map(({ platform }) => (
+          <Text key={platform.id}>{platform.name}</Text>
+        ))}
+      </DefinitionItem>
     </Box>
   );
 };
