@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import APIClient from '../services/api-client';
-import { Trailer } from '../types/Trailer';
+import Trailer from '../types/Trailer';
 
 const useTrailers = (slug: string) => {
   const apiClient = new APIClient<Trailer>(`/games/${slug}/movies`);
