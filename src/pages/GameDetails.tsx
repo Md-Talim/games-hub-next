@@ -1,4 +1,13 @@
-import { Box, Heading, SimpleGrid, Spinner } from '@chakra-ui/react';
+import {
+  Box,
+  HStack,
+  Heading,
+  Link,
+  SimpleGrid,
+  Spinner,
+  Text,
+} from '@chakra-ui/react';
+import { FaExternalLinkAlt } from 'react-icons/fa';
 import { useParams } from 'react-router-dom';
 import { ExpandableText, GameAttributes, GameTrailer } from '../components';
 import GameScreenshots from '../components/GameScreenshots';
@@ -23,6 +32,12 @@ const GameDetail = () => {
         <Heading>{game.name}</Heading>
         <ExpandableText text={game.description} />
         <GameAttributes game={game} />
+        <Link href={game.website} isExternal>
+          <HStack>
+            <Text>Lean more</Text>
+            <FaExternalLinkAlt />
+          </HStack>
+        </Link>
       </Box>
       <Box>
         <GameTrailer slug={game.slug} />

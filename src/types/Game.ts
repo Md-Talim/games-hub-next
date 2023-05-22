@@ -7,6 +7,7 @@ export default interface Game {
   slug: string;
   name: string;
   description: string;
+  website: string;
   background_image: string;
   parent_platforms: { platform: Platform }[];
   publishers: Publisher[];
