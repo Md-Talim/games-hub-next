@@ -34,7 +34,7 @@ const GameDetail = () => {
         <GameAttributes game={game} />
         <Link href={game.website} isExternal>
           <HStack>
-            <Text>Lean more</Text>
+            <Text>Learn more</Text>
             <FaExternalLinkAlt />
           </HStack>
         </Link>
