@@ -26,7 +26,7 @@ const Home = () => {
       </Show>
       <GridItem maxHeight="92vh" overflowY="scroll" area="main" paddingX={5}>
         <GameHeading />
-        <Flex marginBottom={5} gap={5}>
+        <Flex marginBottom={5} paddingX={5} gap={5}>
           <PlatformSelector />
           <SortSelector />
         </Flex>
