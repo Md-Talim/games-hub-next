@@ -7,8 +7,7 @@ import GameCardContainer from './GameCardContainer';
 import GameCardSkeleton from './GameCardSkeleton';
 
 const GameGrid = () => {
-  const { data, error, isLoading, hasNextPage, fetchNextPage } =
-    useGames();
+  const { data, error, isLoading, hasNextPage, fetchNextPage } = useGames();
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
   const fetchedGamesCount =
@@ -23,7 +22,11 @@ const GameGrid = () => {
         loader={<Spinner />}
         dataLength={fetchedGamesCount}
       >
-        <SimpleGrid columns={{ sm: 1, md: 2, lg: 3, xl: 4 }} spacing={4}>
+        <SimpleGrid
+          overflow="visible"
+          columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
+          spacing={4}
+        >
           {isLoading &&
             skeletons.map((skeleton) => (
               <GameCardContainer key={skeleton}>
