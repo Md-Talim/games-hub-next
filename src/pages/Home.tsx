@@ -1,4 +1,4 @@
-import { Flex, Grid, GridItem, Show } from '@chakra-ui/react';
+import { Box, Flex, Grid, GridItem, Show } from '@chakra-ui/react';
 import {
   GameGrid,
   GameHeading,
@@ -29,17 +29,14 @@ const Home = () => {
           <GenreList />
         </GridItem>
       </Show>
-      <GridItem
-        maxHeight="calc(100vh - 80px)"
-        overflowY="scroll"
-        area="main"
-        paddingX={5}
-      >
-        <GameHeading />
-        <Flex marginBottom={5} paddingX={5} gap={5}>
-          <PlatformSelector />
-          <SortSelector />
-        </Flex>
+      <GridItem maxHeight="calc(100vh - 80px)" overflowY="scroll" area="main">
+        <Box paddingX={5}>
+          <GameHeading />
+          <Flex marginBottom={5} gap={5}>
+            <PlatformSelector />
+            <SortSelector />
+          </Flex>
+        </Box>
         <GameGrid />
       </GridItem>
     </Grid>
