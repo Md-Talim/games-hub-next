@@ -20,11 +20,21 @@ const Home = () => {
       }}
     >
       <Show above="lg">
-        <GridItem area="aside" paddingX={8} maxHeight="92vh" overflowY="scroll">
+        <GridItem
+          area="aside"
+          paddingX={8}
+          maxHeight="calc(100vh - 80px)"
+          overflowY="scroll"
+        >
           <GenreList />
         </GridItem>
       </Show>
-      <GridItem maxHeight="92vh" overflowY="scroll" area="main" paddingX={5}>
+      <GridItem
+        maxHeight="calc(100vh - 80px)"
+        overflowY="scroll"
+        area="main"
+        paddingX={5}
+      >
         <GameHeading />
         <Flex marginBottom={5} paddingX={5} gap={5}>
           <PlatformSelector />
