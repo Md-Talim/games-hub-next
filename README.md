@@ -1,53 +1,36 @@
-# Gamers Grid
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-### Description
-This repository contains the code for a website built with React.js, TypeScript, Chakra-ui, and integrated with the rawg.io games API. The website allows users to search for games and filter them by platform and genres.
+## Getting Started
 
-### Features
-- Search for games
-- Filter games by platform and genres
-- Sort games by popularity & rating
-- Dark and light theme toggled
-- Unlimited scroll
+First, run the development server:
 
-### Technologies Used
-- React.js
-- TypeScript
-- Chakra-ui
-- rawg.io games API
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-### Website Features
-The website allows users to browse their favorite games. You can also search for games and filter them by platform and genres. It provides a user-friendly interface for exploring and discovering various games.
-You can view the individual game information.
-**Like:**
-- Game description
-- Screenshots
-- Trailer (if available)
-- Game website link
-- Platforms on which you can play
-- Publisher information
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-### Sample Games
-- Grand Theft Auto V
-- The Witcher 3: Wild Hunt
-- Portal 2
-- Counter-Strike: Global Offensive
-- Tomb Raider (2013)
-- Left 4 Dead 2
-- The Elder Scrolls V: Skyrim
-- Red Dead Redemption 2
-- BioShock Infinite
-- Borderlands 2
-- Life is Strange
-- Half-Life 2
-- BioShock
-- Destiny 2
-- Limbo
-- God of War (2018)
-- Fallout 4
-- DOOM (2016)
-- PAYDAY 2
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-For more information, please visit the website.
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-This README.md provides an overview of the repository for the website built with React.js, TypeScript, Chakra-ui, and rawg.io games API. It highlights the features, technologies used, and sample games available on the website.
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
