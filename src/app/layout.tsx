@@ -1,3 +1,5 @@
+import Navbar from "@/components/navbar";
+import clsx from "clsx";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -16,7 +18,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={(clsx(inter.className), "max-h-screen")}>
+        <Navbar />
+        <main>{children}</main>
+      </body>
     </html>
   );
 }
