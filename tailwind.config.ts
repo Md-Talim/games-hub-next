@@ -7,7 +7,18 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      borderWidth: {
+        3: "3px",
+      },
+      fontFamily: {
+        mono: ["var(--font-mono)"],
+        sans: ["var(--font-sans)"],
+      },
+      colors: {
+        springBud: "#9dff00" /* lime green */,
+      },
+    },
   },
   plugins: [],
 };
