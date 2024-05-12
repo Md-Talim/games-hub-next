@@ -1,4 +1,4 @@
-export default function Home() {
+const Home = () => {
   return (
     <div className="grid grid-cols-fr lg:grid-cols-[250px_1fr]">
       <section className="hidden lg:block overflow-y-scroll h-[calc(100vh-80px)] max-h-[calc(100vh-80px)] px-8">
@@ -14,4 +14,6 @@ export default function Home() {
       </div>
     </div>
   );
-}
+};
+
+export default Home;
