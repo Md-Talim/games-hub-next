@@ -7,4 +7,16 @@
   body {
     @apply font-mono bg-black text-white scroll-smooth scroll-pt-4;
   }
+
+  ::-webkit-scrollbar {
+    width: 7px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #595959;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #404040;
+  }
 }

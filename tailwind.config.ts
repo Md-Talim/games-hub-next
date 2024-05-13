@@ -17,6 +17,13 @@ const config: Config = {
       },
       colors: {
         springBud: "#9dff00" /* lime green */,
+        mineShaft: "#313131" /* dark gray */,
+        black: "#000000" /* black */,
+        white: "#ffffff" /* white */,
+        battleshipGray: "#828282" /* medium gray */,
+        mountainMist: "#949494" /* medium gray */,
+        licorice: "#141414" /* almost black */,
+        codGray: "#2f2f2f" /* dark gray */,
       },
     },
   },
