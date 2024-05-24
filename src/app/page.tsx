@@ -1,3 +1,4 @@
+import GamesGrid from "@/components/games-grid";
 import GenreList from "@/components/genre-list";
 
 const Home = () => {
@@ -8,13 +9,15 @@ const Home = () => {
           <GenreList />
         </aside>
       </section>
-      <div className="overflow-y-auto max-h-[calc(100vh-80px)] px-5">
-        Game Name
+      <div className="overflow-y-auto max-h-[calc(100vh-80px)] p-10 space-y-8">
+        <h1>All Games</h1>
+
         <section className="flex mb-5 gap-5">
           <div>PlatformSector</div>
           <div>SortSector</div>
         </section>
-        <section>Main Game Grid</section>
+
+        <GamesGrid />
       </div>
     </div>
   );
