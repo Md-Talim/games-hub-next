@@ -1,6 +1,7 @@
 import getOptimizedImage from "@/utils/get-omitimized-image";
 import Image from "next/image";
 import Link from "next/link";
+import CriticScore from "./critic-score";
 
 interface Game {
   id: number;
@@ -27,9 +28,7 @@ const GameCard = ({
         <Image src={getOptimizedImage(backgroundImage)} fill alt={name} />
       </div>
       <div className="p-5 space-y-4">
-        <div>
-          <p>{metacritic}</p>
-        </div>
+        <CriticScore score={metacritic} />
         <h3 className="text-2xl font-sans font-medium truncate">{name}</h3>
       </div>
     </article>

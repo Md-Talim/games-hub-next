@@ -25,6 +25,8 @@ const config: Config = {
         licorice: "#111111" /* almost black */,
         codGray: "#2f2f2f" /* dark gray */,
         silverCloud: "#C6C7C4" /* light gray - for texts */,
+        gamersGlory: "#32965D" /* Shamrock green */,
+        midScoreMustard: "#FFAD02" /* Orange */,
       },
     },
   },
