@@ -1,4 +1,4 @@
-import Platform from "@/types/platform";
+import Platform from "@/types/Platform";
 import { IconType } from "react-icons";
 import { BsGlobe } from "react-icons/bs";
 import {

@@ -1,8 +1,8 @@
+import Game from "@/types/Game";
 import getOptimizedImage from "@/utils/get-omitimized-image";
 import Image from "next/image";
 import Link from "next/link";
 import CriticScore from "./critic-score";
-import Game from "@/types/game";
 import PlatformsIconList from "./platforms-icon-list";
 
 interface Props extends Game {}

@@ -1,6 +1,6 @@
+import Game from "@/types/Game";
 import fetchData from "@/utils/fetch-data";
 import GameCard from "./game-card";
-import Game from "@/types/game";
 
 export async function getGames() {
   const games = fetchData<Game>("/games");
