@@ -2,17 +2,7 @@ import getOptimizedImage from "@/utils/get-omitimized-image";
 import Image from "next/image";
 import Link from "next/link";
 import CriticScore from "./critic-score";
-
-interface Game {
-  id: number;
-  slug: string;
-  name: string;
-  description: string;
-  website: string;
-  background_image: string;
-  metacritic: number;
-  rating_top: number;
-}
+import Game from "@/types/game";
 
 interface Props extends Game {}
 

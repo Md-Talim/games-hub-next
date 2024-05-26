@@ -1,16 +1,6 @@
 import fetchData from "@/utils/fetch-data";
 import GameCard from "./game-card";
-
-interface Game {
-  id: number;
-  slug: string;
-  name: string;
-  description: string;
-  website: string;
-  background_image: string;
-  metacritic: number;
-  rating_top: number;
-}
+import Game from "@/types/game";
 
 export async function getGames() {
   const games = fetchData<Game>("/games");
