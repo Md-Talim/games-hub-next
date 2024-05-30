@@ -1,11 +1,6 @@
+import Genre from "@/types/Genre";
 import fetchData from "@/utils/fetch-data";
 import GenreButton from "./genre-button";
-
-export interface Genre {
-  id: number;
-  name: string;
-  image_background: string;
-}
 
 export async function getGenres() {
   const genres = fetchData<Genre>("/genres");
@@ -22,7 +17,7 @@ const GenreList = async () => {
       <ul className="space-y-4 mt-6">
         {genres.map((genre) => (
           <li key={genre.id}>
-            <GenreButton imageUrl={genre.image_background} name={genre.name} />
+            <GenreButton {...genre} />
           </li>
         ))}
       </ul>
