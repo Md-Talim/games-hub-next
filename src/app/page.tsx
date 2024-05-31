@@ -1,7 +1,15 @@
 import GamesGrid from "@/components/games-grid";
 import GenreList from "@/components/genre-list";
 
-const Home = () => {
+const Home = ({
+  searchParams,
+}: {
+  searchParams: { [key: string]: string | undefined };
+}) => {
+  const query = {
+    genres: searchParams?.genres || "",
+  };
+
   return (
     <div className="grid grid-cols-fr lg:grid-cols-[250px_1fr]">
       <section className="hidden lg:block overflow-y-auto h-[calc(100vh-80px)] max-h-[calc(100vh-80px)] px-6 py-2">
@@ -17,7 +25,7 @@ const Home = () => {
           <div>SortSector</div>
         </section>
 
-        <GamesGrid />
+        <GamesGrid query={query} />
       </div>
     </div>
   );

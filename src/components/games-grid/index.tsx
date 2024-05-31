@@ -2,14 +2,22 @@ import Game from "@/types/Game";
 import fetchData from "@/utils/fetch-data";
 import GameCard from "./game-card";
 
-export async function getGames() {
-  const games = fetchData<Game>("/games");
+interface Query {
+  genres?: string;
+}
+
+interface Props {
+  query: Query;
+}
+
+export async function getGames(query: Query) {
+  const games = fetchData<Game>("/games", query);
 
   return games;
 }
 
-const GamesGrid = async () => {
-  const games = await getGames();
+const GamesGrid = async ({ query }: Props) => {
+  const games = await getGames(query);
 
   return (
     <section className="grid grid-cols-12 gap-5">

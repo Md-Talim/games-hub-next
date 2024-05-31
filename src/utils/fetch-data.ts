@@ -4,11 +4,22 @@ interface FetchDataResponse<T> {
   results: T[];
 }
 
-async function fetchData<T>(url: string) {
+interface Query {
+  genres?: string;
+}
+
+async function fetchData<T>(url: string, query?: Query) {
   const baseUrl = process.env.BASE_URL;
   const apiKey = process.env.API_KEY;
 
-  const response = await fetch(`${baseUrl}${url}?key=${apiKey}`);
+  const params = new URLSearchParams();
+  params.set("key", apiKey || "");
+
+  if (query?.genres) {
+    params.set("genres", query.genres);
+  }
+
+  const response = await fetch(`${baseUrl}${url}?${params.toString()}`);
 
   if (!response.ok) {
     throw new Error(`API request failed with status ${response.status}`);
