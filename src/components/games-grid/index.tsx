@@ -1,11 +1,7 @@
 import Game from "@/types/Game";
+import Query from "@/types/Query";
 import fetchData from "@/utils/fetch-data";
 import GameCard from "./game-card";
-
-interface Query {
-  genres?: string;
-  ordering?: string;
-}
 
 interface Props {
   query: Query;

@@ -1,12 +1,9 @@
+import Query from "@/types/Query";
+
 interface FetchDataResponse<T> {
   count: number;
   next: string | null;
   results: T[];
-}
-
-interface Query {
-  genres?: string;
-  ordering?: string;
 }
 
 async function fetchData<T>(url: string, query?: Query) {
