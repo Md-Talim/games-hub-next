@@ -1,5 +1,6 @@
 import GamesGrid from "@/components/games-grid";
 import GenreList from "@/components/genre-list";
+import SortSelector from "@/components/selectors/sort-selector";
 
 const Home = ({
   searchParams,
@@ -8,6 +9,7 @@ const Home = ({
 }) => {
   const query = {
     genres: searchParams?.genres || "",
+    ordering: searchParams?.ordering || "",
   };
 
   return (
@@ -22,7 +24,7 @@ const Home = ({
 
         <section className="flex mb-5 gap-5">
           <div>PlatformSector</div>
-          <div>SortSector</div>
+          <SortSelector />
         </section>
 
         <GamesGrid query={query} />

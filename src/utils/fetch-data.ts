@@ -6,6 +6,7 @@ interface FetchDataResponse<T> {
 
 interface Query {
   genres?: string;
+  ordering?: string;
 }
 
 async function fetchData<T>(url: string, query?: Query) {
@@ -17,6 +18,9 @@ async function fetchData<T>(url: string, query?: Query) {
 
   if (query?.genres) {
     params.set("genres", query.genres);
+  }
+  if (query?.ordering) {
+    params.set("ordering", query.ordering);
   }
 
   const response = await fetch(`${baseUrl}${url}?${params.toString()}`);

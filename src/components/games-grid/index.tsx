@@ -4,6 +4,7 @@ import GameCard from "./game-card";
 
 interface Query {
   genres?: string;
+  ordering?: string;
 }
 
 interface Props {
