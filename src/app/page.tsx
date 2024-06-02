@@ -1,7 +1,6 @@
 import GamesGrid from "@/components/games-grid";
 import GenreList from "@/components/genre-list";
-import PlatformSelector from "@/components/selectors/platform-selector";
-import SortSelector from "@/components/selectors/sort-selector";
+import { PlatformSelector, SortSelector } from "@/components/selectors";
 
 const Home = ({
   searchParams,
