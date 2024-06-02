@@ -1,5 +1,6 @@
 import GamesGrid from "@/components/games-grid";
 import GenreList from "@/components/genre-list";
+import PlatformSelector from "@/components/selectors/platform-selector";
 import SortSelector from "@/components/selectors/sort-selector";
 
 const Home = ({
@@ -10,6 +11,7 @@ const Home = ({
   const query = {
     genres: searchParams?.genres || "",
     ordering: searchParams?.ordering || "",
+    parent_platforms: searchParams?.parent_platforms || "",
   };
 
   return (
@@ -23,7 +25,7 @@ const Home = ({
         <h1 className="text-5xl font-bold uppercase">All Games</h1>
 
         <section className="flex mb-5 gap-5">
-          <div>PlatformSector</div>
+          <PlatformSelector />
           <SortSelector />
         </section>
 

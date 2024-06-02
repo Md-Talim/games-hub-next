@@ -13,11 +13,15 @@ async function fetchData<T>(url: string, query?: Query) {
   const params = new URLSearchParams();
   params.set("key", apiKey || "");
 
-  if (query?.genres) {
-    params.set("genres", query.genres);
-  }
-  if (query?.ordering) {
-    params.set("ordering", query.ordering);
+  if (url !== "genres") {
+    if (query?.genres) {
+      params.set("genres", query.genres);
+    }
+    if (query?.ordering) {
+      params.set("ordering", query.ordering);
+    }
+    if (query?.parent_platforms)
+      params.set("parent_platforms", query.parent_platforms);
   }
 
   const response = await fetch(`${baseUrl}${url}?${params.toString()}`);
