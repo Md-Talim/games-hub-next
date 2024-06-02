@@ -70,3 +70,12 @@ export const platforms = [
     slug: "web",
   },
 ];
+
+export const sortOrders = [
+  { value: "", label: "Relevence" },
+  { value: "-added", label: "Date Added" },
+  { value: "name", label: "Name" },
+  { value: "-released", label: "Release Date" },
+  { value: "-metacritic", label: "Popularity" },
+  { value: "-rating", label: "Average Rating" },
+];

@@ -1,5 +1,6 @@
 "use client";
 
+import { sortOrders } from "@/lib/data";
 import clsx from "clsx";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
@@ -9,15 +10,6 @@ const SortSelector = () => {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
-
-  const sortOrders = [
-    { value: "", label: "Relevence" },
-    { value: "-added", label: "Date Added" },
-    { value: "name", label: "Name" },
-    { value: "-released", label: "Release Date" },
-    { value: "-metacritic", label: "Popularity" },
-    { value: "-rating", label: "Average Rating" },
-  ];
 
   const currentSortOrder = searchParams.get("ordering") || "Relevance";
 
