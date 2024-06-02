@@ -33,6 +33,9 @@ const PlatformsIconList = ({ platforms }: Props) => {
     <div className="flex gap-x-2">
       {platforms.map(({ id, slug }) => {
         const Icon = icons[slug];
+        if (!Icon) {
+          return null;
+        }
 
         return <Icon key={id} className="h-4 w-4 text-mountainMist" />;
       })}
