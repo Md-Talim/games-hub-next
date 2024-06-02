@@ -1,6 +1,6 @@
 import Game from "@/types/Game";
 import Query from "@/types/Query";
-import fetchData from "@/utils/fetch-data";
+import fetchData from "@/lib/utils/fetch-data";
 import GameCard from "./game-card";
 
 interface Props {

@@ -1,7 +1,7 @@
 "use client";
 
 import Genre from "@/types/Genre";
-import getOptimizedImage from "@/utils/get-omitimized-image";
+import getOptimizedImage from "@/lib/utils/get-omitimized-image";
 import clsx from "clsx";
 import Image from "next/image";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";

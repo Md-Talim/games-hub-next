@@ -1,5 +1,5 @@
 import Genre from "@/types/Genre";
-import fetchData from "@/utils/fetch-data";
+import fetchData from "@/lib/utils/fetch-data";
 import GenreButton from "./genre-button";
 
 export async function getGenres() {
