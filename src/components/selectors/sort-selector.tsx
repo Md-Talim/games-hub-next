@@ -8,20 +8,20 @@ import { BsChevronDown } from "react-icons/bs";
 
 const SortSelector = () => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [currentSortOrder, setCurrentSortOrder] = useState("Relevance");
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
-
-  const currentSortOrder = searchParams.get("ordering") || "Relevance";
 
   const toggleExpandMenu = () => {
     setIsExpanded((prevState) => !prevState);
   };
 
-  const updateParams = (sortValue: string) => {
+  const updateParams = (order: { value: string; label: string }) => {
     toggleExpandMenu();
+    setCurrentSortOrder(order.label);
     const params = new URLSearchParams(searchParams);
-    params.set("ordering", sortValue);
+    params.set("ordering", order.value);
 
     replace(`${pathname}?${params.toString()}`);
   };
@@ -52,7 +52,7 @@ const SortSelector = () => {
         {sortOrders.map((order) => (
           <li key={order.value} value={order.value}>
             <button
-              onClick={() => updateParams(order.value)}
+              onClick={() => updateParams(order)}
               className="w-full px-4 py-2 hover:bg-white hover:text-licorice text-left transition-colors"
             >
               {order.label}
