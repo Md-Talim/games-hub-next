@@ -4,6 +4,7 @@ import { sortOrders } from "@/lib/data";
 import clsx from "clsx";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
+import { BsChevronDown } from "react-icons/bs";
 
 const SortSelector = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -26,17 +27,25 @@ const SortSelector = () => {
   };
 
   return (
-    <div className="relative">
+    <div className="relative w-56 text-sm font-sans">
       <button
         onClick={toggleExpandMenu}
-        className="bg-licorice px-4 py-2 rounded-lg border border-codGray"
+        className="flex items-center justify-between w-full bg-licorice px-4 py-2 rounded-lg border border-codGray text-left"
       >
-        Sort By: <span>{currentSortOrder}</span>
+        <span>
+          Sort By: <span className="font-bold">{currentSortOrder}</span>
+        </span>
+        <BsChevronDown
+          className={clsx(
+            isExpanded ? "rotate-180" : "rotate-0",
+            "transition-transform"
+          )}
+        />
       </button>
 
       <ul
         className={clsx(
-          "z-10 w-52 absolute top-full flex-col bg-licorice rounded-lg py-4 border border-codGray mt-4",
+          "z-10 w-56 absolute top-full flex-col bg-licorice rounded-lg py-4 border border-codGray mt-4",
           isExpanded ? "flex" : "hidden"
         )}
       >
