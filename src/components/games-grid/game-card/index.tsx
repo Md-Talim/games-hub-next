@@ -20,7 +20,7 @@ const GameCard = ({
         <Image src={getOptimizedImage(backgroundImage)} fill alt={name} />
       </div>
       <div className="p-6 space-y-3">
-        <CriticScore score={metacritic} />
+        {metacritic && <CriticScore score={metacritic} />}
         <h3 className="text-2xl font-sans font-medium truncate">{name}</h3>
         {parent_platforms && (
           <PlatformsIconList
