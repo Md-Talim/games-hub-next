@@ -1,8 +1,19 @@
 import GamesGrid from "@/components/games-grid";
+import GamesGridSkeleton from "@/components/games-grid/skeleton";
 import GenreList from "@/components/genre-list";
 import { PlatformSelector, SortSelector } from "@/components/selectors";
+import fetchData from "@/lib/utils/fetch-data";
+import Game from "@/types/Game";
+import Query from "@/types/Query";
+import { Suspense } from "react";
 
-const Home = ({
+export async function getGames(query: Query) {
+  const games = fetchData<Game>("/games", query);
+
+  return games;
+}
+
+const Home = async ({
   searchParams,
 }: {
   searchParams: { [key: string]: string | undefined };
@@ -12,6 +23,8 @@ const Home = ({
     ordering: searchParams?.ordering || "",
     parent_platforms: searchParams?.parent_platforms || "",
   };
+
+  const games = await getGames(query);
 
   return (
     <div className="grid grid-cols-fr lg:grid-cols-[250px_1fr]">
@@ -28,7 +41,7 @@ const Home = ({
           <SortSelector />
         </section>
 
-        <GamesGrid query={query} />
+        <GamesGrid games={games} />
       </div>
     </div>
   );
