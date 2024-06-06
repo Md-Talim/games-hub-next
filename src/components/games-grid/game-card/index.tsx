@@ -1,5 +1,5 @@
-import Game from "@/types/Game";
 import getOptimizedImage from "@/lib/utils/get-omitimized-image";
+import Game from "@/types/Game";
 import Image from "next/image";
 import Link from "next/link";
 import CriticScore from "./critic-score";
