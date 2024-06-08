@@ -1,12 +1,19 @@
 import GamesGrid from "@/components/games-grid";
 import GenreList from "@/components/genre-list";
 import { PlatformSelector, SortSelector } from "@/components/selectors";
-import fetchData from "@/lib/utils/fetch-data";
+import APIClient from "@/lib/utils/api-client";
 import Game from "@/types/Game";
 import Query from "@/types/Query";
 
-export async function getGames(query: Query) {
-  const games = fetchData<Game>("/games", query);
+async function getGames(query: Query) {
+  const apiClient = new APIClient<Game>("/games");
+  const games = await apiClient.getAll({
+    params: {
+      genres: query.genres,
+      ordering: query.ordering,
+      parent_platforms: query.parent_platforms,
+    },
+  });
 
   return games;
 }
@@ -17,12 +24,13 @@ const Home = async ({
   searchParams: { [key: string]: string | undefined };
 }) => {
   const query = {
-    genres: searchParams?.genres || "",
-    ordering: searchParams?.ordering || "",
-    parent_platforms: searchParams?.parent_platforms || "",
+    genres: searchParams.genres,
+    ordering: searchParams.ordering,
+    parent_platforms: searchParams.parent_platforms,
   };
 
   const games = await getGames(query);
+  console.log(games.results);
 
   return (
     <div className="grid grid-cols-fr lg:grid-cols-[250px_1fr]">
@@ -39,7 +47,7 @@ const Home = async ({
           <SortSelector />
         </section>
 
-        <GamesGrid games={games} />
+        <GamesGrid games={games.results} />
       </div>
     </div>
   );

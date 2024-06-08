@@ -1,9 +1,10 @@
+import APIClient from "@/lib/utils/api-client";
 import Genre from "@/types/Genre";
-import fetchData from "@/lib/utils/fetch-data";
 import GenreButton from "./genre-button";
 
 export async function getGenres() {
-  const genres = fetchData<Genre>("/genres");
+  const apiClient = new APIClient<Genre>("/genres");
+  const genres = await apiClient.getAll();
 
   return genres;
 }
@@ -15,7 +16,7 @@ const GenreList = async () => {
     <>
       <h2 className="text-3xl font-bold uppercase">Genres</h2>
       <ul className="space-y-4 mt-6">
-        {genres.map((genre) => (
+        {genres.results.map((genre) => (
           <li key={genre.id}>
             <GenreButton {...genre} />
           </li>
