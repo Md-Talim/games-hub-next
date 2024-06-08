@@ -14,7 +14,7 @@ const GameCard = ({
   slug,
   name,
 }: Props) => (
-  <Link href={`/game/${slug}`}>
+  <Link href={`/games/${slug}`}>
     <article className="bg-licorice overflow-hidden rounded-3xl">
       <div className="w-full relative aspect-video">
         <Image src={getOptimizedImage(backgroundImage)} fill alt={name} />
