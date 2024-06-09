@@ -72,7 +72,7 @@ export const platforms = [
 ];
 
 export const sortOrders = [
-  { value: "", label: "Relevence" },
+  // { value: "", label: "Relevence" },
   { value: "-added", label: "Date Added" },
   { value: "name", label: "Name" },
   { value: "-released", label: "Release Date" },

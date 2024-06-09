@@ -1,70 +1,46 @@
 "use client";
 
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { platforms } from "@/lib/data";
-import Platform from "@/types/Platform";
-import clsx from "clsx";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useState } from "react";
-import { BsChevronDown } from "react-icons/bs";
 
 const PlatformSelector = () => {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [selectedPlatform, setSelectedPlatform] = useState<Platform | null>(
-    null
-  );
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
 
-  const toggleExpandMenu = () => {
-    setIsExpanded((prevState) => !prevState);
-  };
-
-  const updateParams = (platform: Platform) => {
-    toggleExpandMenu();
-    setSelectedPlatform(platform);
+  const updateParams = (platformId: string) => {
     const params = new URLSearchParams(searchParams);
-    params.set("parent_platforms", platform.id.toString());
+    params.set("parent_platforms", platformId);
 
     replace(`${pathname}?${params.toString()}`);
   };
 
   return (
-    <div className="relative w-56 text-sm font-sans">
-      <button
-        onClick={toggleExpandMenu}
-        className={clsx(
-          "flex items-center justify-between w-full bg-licorice px-4 py-2 rounded-lg border border-codGray text-left",
-          selectedPlatform && "bg-white text-licorice"
-        )}
-      >
-        {selectedPlatform?.name || "Platform"}
-        <BsChevronDown
-          className={clsx(
-            isExpanded ? "rotate-180" : "rotate-0",
-            "transition-transform"
-          )}
-        />
-      </button>
+    <Select onValueChange={(value: string) => updateParams(value)}>
+      <SelectTrigger className="w-56 bg-licorice border border-codGray">
+        <SelectValue placeholder="Platform" />
+      </SelectTrigger>
+      <SelectContent className="text-silverCloud bg-licorice rounded-lg border border-codGray">
+        <SelectGroup>
+          <SelectLabel>Platforms</SelectLabel>
 
-      <ul
-        className={clsx(
-          "z-10 w-56 absolute top-full flex-col bg-licorice rounded-lg py-4 border border-codGray mt-4",
-          isExpanded ? "flex" : "hidden"
-        )}
-      >
-        {platforms.map((platform) => (
-          <li key={platform.id}>
-            <button
-              onClick={() => updateParams(platform)}
-              className="w-full px-4 py-2 hover:bg-white hover:text-licorice text-left transition-colors"
-            >
+          {platforms.map((platform) => (
+            <SelectItem key={platform.id} value={platform.id.toString()}>
               {platform.name}
-            </button>
-          </li>
-        ))}
-      </ul>
-    </div>
+            </SelectItem>
+          ))}
+        </SelectGroup>
+      </SelectContent>
+    </Select>
   );
 };
 
