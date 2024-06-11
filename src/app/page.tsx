@@ -30,7 +30,6 @@ const Home = async ({
   };
 
   const games = await getGames(query);
-  console.log(games.results);
 
   return (
     <div className="grid grid-cols-fr lg:grid-cols-[250px_1fr]">
