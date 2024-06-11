@@ -18,6 +18,7 @@ const GameDetailsPage = async ({ params }: { params: { slug: string } }) => {
 
   return (
     <main className="max-w-5xl mx-auto p-10">
+      <GameScreenshots id={gameDetails.id} />
       <div className="space-y-5">
         <h1 className="text-2xl font-bold">{gameDetails.name}</h1>
         <ExpandableText text={gameDetails.description} />
