@@ -1,4 +1,8 @@
-import { ExpandableText } from "@/components/game-details";
+import {
+  ExpandableText,
+  GameAttributes,
+  GameScreenshots,
+} from "@/components/game-details";
 import APIClient from "@/lib/utils/api-client";
 import Game from "@/types/Game";
 
@@ -17,6 +21,7 @@ const GameDetailsPage = async ({ params }: { params: { slug: string } }) => {
       <div className="space-y-5">
         <h1 className="text-2xl font-bold">{gameDetails.name}</h1>
         <ExpandableText text={gameDetails.description} />
+        <GameAttributes game={gameDetails} />
       </div>
     </main>
   );
