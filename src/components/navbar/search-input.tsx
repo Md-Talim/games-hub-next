@@ -2,6 +2,7 @@
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useRef } from "react";
+import { BsSearch } from "react-icons/bs";
 
 const SearchInput = () => {
   const ref = useRef<HTMLInputElement>(null);
@@ -26,14 +27,16 @@ const SearchInput = () => {
           updateParams(ref.current.value);
         }
       }}
-      className="w-4/5 mx-auto"
     >
-      <input
-        ref={ref}
-        type="text"
-        placeholder="SEARCH GAME"
-        className="text-xl rounded-full w-full border-3 border-white px-8 py-2 bg-black text-springBud"
-      />
+      <div className="w-full md:w-96 flex items-center gap-3 py-2 px-4 bg-licorice rounded-md border border-codGray">
+        <BsSearch className="h-5 w-5 text-mountainMist" />
+        <input
+          ref={ref}
+          type="text"
+          placeholder="Searh game..."
+          className="flex-1 text-lg bg-transparent text-springBud outline-none"
+        />
+      </div>
     </form>
   );
 };
