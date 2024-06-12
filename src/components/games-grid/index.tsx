@@ -6,9 +6,9 @@ interface Props {
 }
 
 const GamesGrid = async ({ games }: Props) => (
-  <section className="grid grid-cols-12 gap-5">
+  <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
     {games.map((game) => (
-      <div key={game.id} className="col-span-4">
+      <div key={game.id}>
         <GameCard {...game} />
       </div>
     ))}
