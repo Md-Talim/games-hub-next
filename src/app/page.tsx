@@ -12,6 +12,7 @@ async function getGames(query: Query) {
       genres: query.genres,
       ordering: query.ordering,
       parent_platforms: query.parent_platforms,
+      search: query.search,
     },
   });
 
@@ -27,6 +28,7 @@ const Home = async ({
     genres: searchParams.genres,
     ordering: searchParams.ordering,
     parent_platforms: searchParams.parent_platforms,
+    search: searchParams.search,
   };
 
   const games = await getGames(query);
