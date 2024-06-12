@@ -1,6 +1,14 @@
 import APIClient from "@/lib/utils/api-client";
 import Screenshot from "@/types/Screenshot";
 import Image from "next/image";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "../ui/carousel";
+import GameTrailer from "./game-trailer";
 
 async function getScreenshots(gameId: string) {
   const apiClient = new APIClient<Screenshot>(`/games/${gameId}/screenshots`);
@@ -17,6 +25,31 @@ const GameScreenshots = async ({ id }: Props) => {
   const data = await getScreenshots(id.toString());
 
   return (
+    <Carousel>
+      <CarouselContent>
+        {data.results.map((screenshot) => (
+          <CarouselItem className="md:basis-1/2 lg:basis-1/3">
+            <Image
+              key={screenshot.id}
+              src={screenshot.image}
+              alt={`Screenshot ${screenshot.id}`}
+              height={100}
+              width={200}
+              className="w-full rounded-md"
+            />
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+      <CarouselPrevious className="bg-transparent text-silverCloud" />
+      <CarouselNext className="bg-transparent text-silverCloud" />
+    </Carousel>
+  );
+};
+
+export default GameScreenshots;
+
+/**
+
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4">
       {data.results.map((screenshot) => (
         <Image
@@ -29,7 +62,4 @@ const GameScreenshots = async ({ id }: Props) => {
         />
       ))}
     </div>
-  );
-};
-
-export default GameScreenshots;
+ */
