@@ -12,8 +12,8 @@ const LoadingPage = () => (
         <h1 className="text-5xl font-bold uppercase">All Games</h1>
 
         <section className="flex mb-5 gap-5">
-          <div className="w-56 h-9 bg-licorice border border-codGray" />
-          <div className="w-56 h-9 bg-licorice border border-codGray" />
+          <div className="animate-pulse w-56 h-9 bg-licorice border border-codGray" />
+          <div className="animate-pulse w-56 h-9 bg-licorice border border-codGray" />
         </section>
 
         <GamesGridSkeleton />

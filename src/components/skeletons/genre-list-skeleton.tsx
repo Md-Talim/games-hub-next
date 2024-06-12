@@ -7,9 +7,9 @@ const GenreListSkeleton = () => {
       <ul className="space-y-4 mt-6">
         {elements.map((_, index) => (
           <li key={index}>
-            <div className="flex gap-2">
-              <div className="w-8 aspect-square rounded-md bg-mineShaft" />
-              <div className="w-20 h-4 bg-silverCloud" />
+            <div className="flex items-center gap-2">
+              <div className="animate-pulse w-8 aspect-square rounded-md bg-mineShaft" />
+              <div className="animate-pulse w-20 h-4 bg-silverCloud" />
             </div>
           </li>
         ))}
