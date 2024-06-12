@@ -1,3 +1,4 @@
+import { DrawerClose } from "@/components/ui/drawer";
 import APIClient from "@/lib/utils/api-client";
 import Genre from "@/types/Genre";
 import GenreButton from "./genre-button";
@@ -9,20 +10,30 @@ export async function getGenres() {
   return genres;
 }
 
-const GenreList = async () => {
+interface Props {
+  isMobile?: boolean;
+}
+
+const GenreList = async ({ isMobile }: Props) => {
   const genres = await getGenres();
 
   return (
-    <>
+    <aside>
       <h2 className="text-3xl font-bold uppercase">Genres</h2>
       <ul className="space-y-4 mt-6">
         {genres.results.map((genre) => (
           <li key={genre.id}>
-            <GenreButton {...genre} />
+            {isMobile ? (
+              <DrawerClose>
+                <GenreButton {...genre} />
+              </DrawerClose>
+            ) : (
+              <GenreButton {...genre} />
+            )}
           </li>
         ))}
       </ul>
-    </>
+    </aside>
   );
 };
 
