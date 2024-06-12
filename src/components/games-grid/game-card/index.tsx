@@ -15,13 +15,15 @@ const GameCard = ({
   name,
 }: Props) => (
   <Link href={`/games/${slug}`}>
-    <article className="bg-licorice overflow-hidden rounded-3xl">
+    <article className="bg-licorice overflow-hidden rounded-3xl transition-transform hover:scale-105">
       <div className="w-full relative aspect-video">
         <Image src={getOptimizedImage(backgroundImage)} fill alt={name} />
       </div>
       <div className="p-6 space-y-3">
         {metacritic && <CriticScore score={metacritic} />}
-        <h3 className="text-2xl font-sans font-medium truncate">{name}</h3>
+        <h3 className="text-2xl font-sans font-medium truncate hover:text-springBud">
+          {name}
+        </h3>
         {parent_platforms && (
           <PlatformsIconList
             platforms={parent_platforms.map((platform) => platform.platform)}
