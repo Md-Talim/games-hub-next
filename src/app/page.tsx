@@ -1,9 +1,11 @@
 import GamesGrid from "@/components/games-grid";
 import GenreList from "@/components/genre-list";
 import { PlatformSelector, SortSelector } from "@/components/selectors";
+import { GamesGridSkeleton } from "@/components/skeletons";
 import APIClient from "@/lib/utils/api-client";
 import Game from "@/types/Game";
 import Query from "@/types/Query";
+import { Suspense } from "react";
 
 async function getGames(query: Query) {
   const apiClient = new APIClient<Game>("/games");
@@ -42,11 +44,15 @@ const Home = async ({
         <h1 className="text-5xl font-bold uppercase">All Games</h1>
 
         <section className="flex mb-5 gap-5">
-          <PlatformSelector />
-          <SortSelector />
+          <Suspense>
+            <PlatformSelector />
+            <SortSelector />
+          </Suspense>
         </section>
 
-        <GamesGrid games={games.results} />
+        <Suspense fallback={<GamesGridSkeleton />}>
+          <GamesGrid games={games.results} />
+        </Suspense>
       </div>
     </div>
   );

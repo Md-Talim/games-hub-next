@@ -1,6 +1,7 @@
-import SearchInput from "./search-input";
-import Logo from "./logo";
+import { Suspense } from "react";
 import GenreMenu from "./genre-menu";
+import Logo from "./logo";
+import SearchInput from "./search-input";
 
 const Navbar = () => {
   return (
@@ -8,9 +9,9 @@ const Navbar = () => {
       <Logo />
 
       <div className="flex items-center justify-between">
-        <section>
+        <Suspense>
           <SearchInput />
-        </section>
+        </Suspense>
 
         <div className="lg:hidden">
           <GenreMenu />

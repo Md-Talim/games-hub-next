@@ -2,6 +2,7 @@ import { DrawerClose } from "@/components/ui/drawer";
 import APIClient from "@/lib/utils/api-client";
 import Genre from "@/types/Genre";
 import GenreButton from "./genre-button";
+import { Suspense } from "react";
 
 export async function getGenres() {
   const apiClient = new APIClient<Genre>("/genres");
@@ -25,10 +26,14 @@ const GenreList = async ({ isMobile }: Props) => {
           <li key={genre.id}>
             {isMobile ? (
               <DrawerClose>
-                <GenreButton {...genre} />
+                <Suspense>
+                  <GenreButton {...genre} />
+                </Suspense>
               </DrawerClose>
             ) : (
-              <GenreButton {...genre} />
+              <Suspense>
+                <GenreButton {...genre} />
+              </Suspense>
             )}
           </li>
         ))}
