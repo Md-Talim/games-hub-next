@@ -28,9 +28,11 @@ const GameScreenshots = async ({ id }: Props) => {
     <Carousel>
       <CarouselContent>
         {data.results.map((screenshot) => (
-          <CarouselItem className="md:basis-1/2 lg:basis-1/3">
+          <CarouselItem
+            key={screenshot.id}
+            className="md:basis-1/2 lg:basis-1/3"
+          >
             <Image
-              key={screenshot.id}
               src={screenshot.image}
               alt={`Screenshot ${screenshot.id}`}
               height={100}
@@ -47,19 +49,3 @@ const GameScreenshots = async ({ id }: Props) => {
 };
 
 export default GameScreenshots;
-
-/**
-
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4">
-      {data.results.map((screenshot) => (
-        <Image
-          key={screenshot.id}
-          src={screenshot.image}
-          alt={`Screenshot ${screenshot.id}`}
-          height={100}
-          width={200}
-          className="w-full"
-        />
-      ))}
-    </div>
- */
