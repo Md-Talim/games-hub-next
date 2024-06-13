@@ -42,8 +42,8 @@ const GameScreenshots = async ({ id }: Props) => {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious className="bg-transparent text-silverCloud" />
-      <CarouselNext className="bg-transparent text-silverCloud" />
+      <CarouselPrevious className="max-sm:hidden bg-transparent text-silverCloud" />
+      <CarouselNext className="max-sm:hidden bg-transparent text-silverCloud" />
     </Carousel>
   );
 };
