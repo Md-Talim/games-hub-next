@@ -8,7 +8,7 @@ const LoadingPage = () => (
           <GenreListSkeleton />
         </aside>
       </section>
-      <div className="overflow-y-auto max-h-[calc(100vh-80px)] p-10 space-y-8">
+      <div className="overflow-y-auto max-h-[calc(100vh-80px)] p-2 md:p-10 space-y-8">
         <h1 className="text-5xl font-bold uppercase">All Games</h1>
 
         <section className="flex mb-5 gap-5">
