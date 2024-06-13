@@ -4,7 +4,7 @@ import GenreList from "@/components/genre-list";
 
 const GenreMenu = () => (
   <Drawer direction="left">
-    <DrawerTrigger>
+    <DrawerTrigger className="flex items-center justify-center">
       <MenuIcon className="text-silverCloud" />
     </DrawerTrigger>
     <DrawerContent className="h-full w-[300px]">
