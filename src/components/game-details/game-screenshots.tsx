@@ -8,7 +8,6 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "../ui/carousel";
-import GameTrailer from "./game-trailer";
 
 async function getScreenshots(gameId: string) {
   const apiClient = new APIClient<Screenshot>(`/games/${gameId}/screenshots`);
